@@ -1,0 +1,17 @@
+<h1>Users</h1>
+<%= will_paginate @users %>
+<ul>
+<% @users.each do |user| %>
+  <li><%= user.id %>||<%= user.name %>||<%= user.email %></li>
+<% end %>
+</u>
+
+<%= form_tag("/", method: "get") do %>
+  User: <%= select_tag(:name, options_for_select(@user_options)) %>
+  <%= submit_tag("Find User!") %>
+<% end %>
+
+<% if @user_name %>
+  <%= @user_name %>
+<% end %>
+<%= debug(params) %>
